@@ -180,7 +180,7 @@ const Contact = () => {
       </form>
     </motion.section>
   );
-};
+};  
 
 export default Contact;
    
