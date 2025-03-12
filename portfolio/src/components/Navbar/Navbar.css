@@ -1,0 +1,133 @@
+/* General Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+/* Navbar when scrolled */
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 10px 20px;
+}
+
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+/* Underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Active link styling */
+.nav-links a.active {
+  color: #000;
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1200; /* Ensure it's clickable above everything */
+  font-size: 2rem;
+  cursor: pointer;
+  color: black; /* Default: Black when closed */
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 70vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9); /* Dark background */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: right 0.3s ease-in-out; /* Slide-in effect */
+  }
+
+  .nav-links.open {
+    right: 0; /* Bring into view */
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    color: white; /* White text */
+  }
+
+  /* Mobile Menu Icon */
+  .menu-icon {
+    color: black; /* Start as black */
+    display: block;
+  }
+
+  /* When menu is open, change icon to white */
+  .menu-icon.open {
+    color: white;
+    transform: rotate(180deg);
+  }
+}
