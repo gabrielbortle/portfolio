@@ -1,0 +1,4 @@
+# Ignore env files
+backend/.env
+portfolio/.env
+.env
