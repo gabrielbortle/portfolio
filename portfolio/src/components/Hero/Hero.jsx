@@ -45,10 +45,10 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
         >
-          <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/gabrielbortle" target="_blank" rel="noopener noreferrer">
             <FaGithub className="icon" />
           </a>
-          <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/gabriel-giron-164b592a8/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="icon" />
           </a>
         </motion.div>
