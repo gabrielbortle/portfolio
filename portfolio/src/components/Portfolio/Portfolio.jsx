@@ -37,7 +37,6 @@ const projects = [
     liveLink: 'https://gabrielsphoto.com',
   },
 ];
-
 const Portfolio = () => {
   return (
     <section className="portfolio">
@@ -49,7 +48,14 @@ const Portfolio = () => {
             <div className="overlay">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              <a href={project.liveLink} className="view-project-btn">View Project</a>
+              <a 
+                href={project.liveLink} 
+                className="view-project-btn" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                View Project
+              </a>
             </div>
             <div className="tech-stack">
               {project.techStack.map((tech, index) => (
@@ -62,5 +68,6 @@ const Portfolio = () => {
     </section>
   );
 };
+
 
 export default Portfolio;
