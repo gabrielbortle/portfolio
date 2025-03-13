@@ -2,12 +2,12 @@ require("dotenv").config();
 const nodemailer = require("nodemailer");
 
 exports.handler = async (event) => {
-  // Handle CORS Preflight Request
+  // Handle CORS preflight request
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "https://gabrielgiron.dev", // Your frontend domain
+        "Access-Control-Allow-Origin": "*", // Change this to your frontend domain for security
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
       },
@@ -18,9 +18,7 @@ exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
-      headers: {
-        "Access-Control-Allow-Origin": "https://gabrielgiron.dev",
-      },
+      headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ error: "Method Not Allowed" }),
     };
   }
@@ -31,9 +29,7 @@ exports.handler = async (event) => {
     if (!name || !email || !phone || !message) {
       return {
         statusCode: 400,
-        headers: {
-          "Access-Control-Allow-Origin": "https://gabrielgiron.dev",
-        },
+        headers: { "Access-Control-Allow-Origin": "*" },
         body: JSON.stringify({ error: "All fields are required." }),
       };
     }
@@ -66,18 +62,14 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "https://gabrielgiron.dev",
-      },
+      headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ success: "Email sent successfully!" }),
     };
   } catch (error) {
     console.error("Error sending email:", error);
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "https://gabrielgiron.dev",
-      },
+      headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ error: "Failed to send email." }),
     };
   }

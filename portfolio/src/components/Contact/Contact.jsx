@@ -13,7 +13,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://candid-sfogliatella-e3bccb.netlify.app";
+  const API_BASE_URL = "https://candid-sfogliatella-e3bccb.netlify.app/.netlify/functions/sendEmail";
 
   // Handle input changes
   const handleChange = (e) => {
@@ -47,11 +47,12 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/.netlify/functions/sendEmail`, {
+      const response = await fetch(API_BASE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+      
 
       const data = await response.json();
       if (response.ok) {
